@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef7f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1, h2 {
+  color: #2e7d32;
+  text-align: center;
+}
+
+input, select, textarea {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 80%;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+.guide-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.guide-card {
+  background: #e0f2f1;
+  padding: 15px;
+  margin: 10px;
+  width: 250px;
+  border-radius: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}

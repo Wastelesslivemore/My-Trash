@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Waste Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="getLocation()">
+  <div class="container">
+    <h1>♻ Smart Waste Management</h1>
+
+    <!-- Login Section -->
+    <section id="login-section">
+      <h2>Select Your Role</h2>
+      <button onclick="selectRole('giver')">Waste Giver</button>
+      <button onclick="selectRole('collector')">Collector</button>
+      <div id="authSection" style="display:none;">
+        <h3 id="roleLabel"></h3>
+        <input type="email" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <div class="button-group">
+          <button onclick="register()">Register</button>
+          <button onclick="login()">Login</button>
+        </div>
+        <p id="authMessage"></p>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Waste Giver Dashboard -->
+    <section id="giverDashboard" style="display:none;">
+      <h2>🏡 Giver Dashboard</h2>
+
+      <div id="locationInfo">
+        <h3>📍 Your Location</h3>
+        <p id="gpsLocation">Detecting your location...</p>
+      </div>
+
+      <h3>Schedule Pickup</h3>
+      <input type="text" id="address" placeholder="Pickup Address" />
+      <input type="date" id="pickupDate" />
+      <select id="wasteType">
+        <option value="organic">Organic</option>
+        <option value="plastic">Plastic</option>
+        <option value="hazardous">Hazardous</option>
+      </select>
+      <button onclick="schedulePickup()">Schedule Pickup</button>
+      <p id="giverMessage"></p>
+      <ul id="giverPickups"></ul>
+
+      <h3>🌱 Compost & Rewards</h3>
+      <textarea id="compostLog" placeholder="Describe compost activity..."></textarea>
+      <input type="file" id="compostImage" accept="image/*" />
+      <button onclick="submitCompost()">Submit Compost</button>
+      <p id="compostMessage"></p>
+      <p><strong>Reward Points:</strong> <span id="rewardPoints">0</span></p>
+
+      <h3>📷 Classify Your Waste</h3>
+      <input type="file" id="wasteImage" accept="image/*" />
+      <button onclick="classifyWaste()">Classify Waste</button>
+      <p id="classificationResult"></p>
+
+      <h3>🔎 Verify Waste Image</h3>
+      <input type="file" id="verifyImage" accept="image/*">
+      <button onclick="verifyWasteImage()">Verify Image</button>
+      <p id="verificationResult"></p>
+
+      <h3>📊 Your Waste Summary</h3>
+      <canvas id="wasteChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Collector Dashboard -->
+    <section id="collectorDashboard" style="display:none;">
+      <h2>🚛 Collector Dashboard</h2>
+      <h3>Upcoming Pickups</h3>
+      <ul id="pickupList"></ul>
+    </section>
+
+    <hr />
+
+    <section id="segregationGuide">
+      <h2>🗂 Waste Segregation Guide</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Organic</h3>
+          <ul>
+            <li>Vegetable scraps</li>
+            <li>Fruit peels</li>
+            <li>Coffee grounds</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>Recyclable</h3>
+          <ul>
+            <li>Paper & cardboard</li>
+            <li>Plastic bottles</li>
+            <li>Metal cans</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>Hazardous</h3>
+          <ul>
+            <li>Batteries</li>
+            <li>Paints & chemicals</li>
+            <li>Medicines</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="leaderboard">
+      <h2>🏆 Eco Leaders</h2>
+      <ul id="topContributors">
+        <li>Coming Soon...</li>
+      </ul>
+    </section>
+
+    <section id="recyclingTips">
+      <h2>♻ Recycling Tips</h2>
+      <p id="tipText">Click below for a tip!</p>
+      <button onclick="showNewTip()">Show Tip</button>
+    </section>
+
+    <section id="reminderSection">
+      <h2>🔔 Schedule a Reminder</h2>
+      <input type="datetime-local" id="reminderTime" />
+      <button onclick="scheduleReminder()">Set Reminder</button>
+    </section>
+
+    <section id="rewardStore">
+      <h2>🎁 Redeem Your Rewards</h2>
+      <button onclick="redeemPoints(50)">₹50 Voucher - 50 Points</button>
+      <button onclick="redeemPoints(100)">₹100 Voucher - 100 Points</button>
+      <p id="redeemMessage"></p>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
